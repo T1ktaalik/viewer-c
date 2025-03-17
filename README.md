@@ -1,0 +1,1 @@
+Используй JSX в Rollup https://www.perplexity.ai/search/how-to-use-react-ibside-a-js-l-kmIvKWzPRt6LOolRWgx46Q

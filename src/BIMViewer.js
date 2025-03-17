@@ -26,12 +26,14 @@ import {ObjectsKdTree3} from "./collision/ObjectsKdTree3.js";
 import {MarqueeSelectionTool} from "./toolbar/MarqueeSelectionTool.js";
 import {MeasureDistanceTool} from "./toolbar/MeasureDistanceTool.js";
 import {MeasureAngleTool} from "./toolbar/MeasureAngleTool.js";
-
-
+import {CreateExplorerTemplate} from "./templates/CreateExplorerTemplate.jsx"
 const hideEdgesMinDrawCount = 5; // FastNavPlugin enables dynamic edges when xeokit's per-frame draw count drops below this
 const scaleCanvasResolutionMinDrawCount = 1000; // FastNavPlugin switches to low-res canvas when xeokit's per-frame draw count rises above this
 
-function createExplorerTemplate(cfg) {
+
+
+
+/* function createExplorerTemplate(cfg) {
     const explorerTemplate = `<div class="xeokit-tabs"> 
     <div class="xeokit-tab xeokit-modelsTab">
         <a class="xeokit-i18n xeokit-tab-btn" href="#" data-xeokit-i18n="modelsExplorer.title">Models</a>
@@ -75,7 +77,7 @@ function createExplorerTemplate(cfg) {
     </div>
 </div>`;
     return explorerTemplate;
-}
+} */
 
 function createToolbarTemplate(cfg = {}) {
     const toolbarTemplate = `<div class="xeokit-toolbar">
@@ -270,7 +272,8 @@ class BIMViewer extends Controller {
         this._customizeViewer();
         this._initCanvasContextMenus();
 
-        explorerElement.innerHTML = createExplorerTemplate(cfg);
+        //explorerElement.innerHTML = createExplorerTemplate(cfg);
+        explorerElement.innerHTML = CreateExplorerTemplate();
         toolbarElement.innerHTML = createToolbarTemplate({enableMeasurements: this._enableMeasurements});
         if (this._enablePropertiesInspector) {
             inspectorElement.innerHTML = createInspectorTemplate();
