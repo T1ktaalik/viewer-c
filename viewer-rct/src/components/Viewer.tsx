@@ -5,17 +5,18 @@ import BIMViewer from "../BIMViewer/BIMViewer";
 import { LocaleService } from "@xeokit/xeokit-sdk/dist/xeokit-sdk.es.js";
 import { messages } from "../BIMViewer/forkedComponents/locales/messages";
 import { Server } from "@xeokit/xeokit-bim-viewer";
-import { useRef } from "react";
+import { useRef, FC } from "react";
+
 export default function Viewer() {
   
   type AllowedTabId = "models" | "objects" | "classes" | "storeys" 
   const explorerTabId = useRef<AllowedTabId>("models");  
-  const explorerElement = useRef(null);
-  const inspectorElement = useRef(null);
-  const navCubeCanvasElement = useRef(null);
-  const toolbarElement = useRef(null);
-  const canvasElement = useRef(null);
-  const viewerAppElement = useRef(null);
+  const explorerElement = useRef<any>(null);
+  const inspectorElement = useRef<any>(null);
+  const navCubeCanvasElement = useRef<any>(null);
+  const toolbarElement = useRef<any>(null);
+  const canvasElement = useRef<any>(null);
+  const viewerAppElement = useRef<any>(null);
 
   const server = new Server({ dataDir: "./data" }); //Добавь requestParams.dataDir
 

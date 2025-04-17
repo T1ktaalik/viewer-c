@@ -37,6 +37,7 @@ class BIMViewer extends Controller {
       busyModelBackdropElement,
       canvasElement,
       explorerElement,
+      explorerTabId,
       inspectorElement,
       toolbarElement,
       navCubeCanvasElement,
@@ -147,6 +148,9 @@ class BIMViewer extends Controller {
     sao.kernelRadius = 200;
 }
 
+  _initCanvasContextMenus() {
+    this._canvasContextMenu = new CanvasContextMenu(this, {/* как нам материалы генплана  */})
+  }
 
 
 
