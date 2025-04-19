@@ -1,4 +1,4 @@
 /// <reference types="vite/client" />
-declare module BIMViewer {
+/* declare module BIMViewer {
     export const BIMViewer: any
-}
+} */

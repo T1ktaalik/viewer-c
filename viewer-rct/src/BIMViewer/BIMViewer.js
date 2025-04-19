@@ -1,4 +1,5 @@
-import {  BCFViewpointsPlugin,
+import {
+  BCFViewpointsPlugin,
   FastNavPlugin,
   math,
   stats,
@@ -188,7 +189,159 @@ class BIMViewer extends Controller {
       }
       return canvasPos;
     };
+
+    this.viewer.scene.canvas.canvas.addEveventListener("contextmenu", event => {
+      const canvasPos = getCanvasPosFromEvent(event);
+      const hit = this.viewer.scene.pick({
+        canvasPos,
+      });
+      if (hit /** pick()  в пределах Viewer */ && hit.entity.isObject) {
+        this._canvasContextMenu.hide();
+        this._objectContextMenu.context = {
+          viewer: this.viewer,
+          bimViewer: this,
+          showObjectInExplorer: objectId => {},
+        };
+      }
+    });
   }
+
+  _initConfigs() {}
+
+  setConfigs() {}
+
+  setConfig(name, value) {}
+
+  getConfig(name) {}
+
+  getProjectsInfo(done, error) {}
+
+  getProjectInfo(projectId, modelId, objectId, done, error) {   }
+
+  loadProject() {}
+
+  unloadProject() {}
+
+  getLoadedProjectId() {}
+
+  getModelIds() {}
+
+  loadModel(modelId, done, error) {}
+
+  loadAllModels(/**внимательно с аргументом */) {}
+
+  getLoadedModelIds() {}
+
+  isModelLoaded(modelId) {}
+
+  unloadModel(modelId) {}
+
+  unloadAllModels() {}
+
+  setBackgroundColor(rgbColor) {}
+
+  getObjectColorSource() {}
+
+  setViewerState(/**внимательно с аргументом */) {}
+
+  _parseSelectedStorey() {}
+
+  _parseThreeDMode() {}
+
+  showObjectInExplorer(objectId) {}
+
+  unshowObjectInExplorer() {}
+
+  showObjectProperties(objectId) {}
+
+  setObjectsVisible(objectIds, visible) {}
+
+  setAllObjectsVisible(visible) {}
+
+  setObjectsXRayed(objectIds, xrayed){}
+
+  setAllObjectsXRayed(xrayed) {}
+
+  setObjectsSelected(objectIds, selected) {}
+
+  setAllObjectsSelected(selected) {}
+
+  _withObjectsInSubtree(objectIds, callback) {}
+
+  flyToObjects(objectId, done) {}
+
+  viewFitObjects(objectIds, done) {}
+
+  viewFitAll(done) {}
+
+  jumpToObject(objectId) {}
+
+  setCamera(camera) {}
+
+  viewFitModels(modelIds, done) {}
+
+  openTab(tabId) {}
+
+  _openTab(element, tabSelector /***   */) {}
+
+  getOpenTab() {}
+
+  set3DEnabled(enabled, done) {}
+
+  get3DEnabled() {}
+
+  setSpaceShown(shown) {}
+
+  getSpacesShown() {}
+
+  setOrhthoEnabled(enabled, done) {
+  }
+
+  getOrthoEnabled() {}  
+
+  selectStorey(storeyObjectid, done) {}
+
+  saveBCFViewpoint(option) {}
+
+  loadBCFViewpoint(bcfViewpoint, options) {}
+
+  resetView() {}
+
+  setControlsEnabled(enabled) {}
+
+  setKeyboardEnabled(enabled) {}
+
+  getKeyboardEnabled() {}
+
+  clearSections() {}
+
+  disableSections() {
+  }
+
+  enableSections() {}
+
+  flipSections() {}
+
+  hideSectionEditControl() {}
+
+  getNumSections() {}
+
+  getEnableMeasurements() {}
+
+  clearMeasurements() {}
+
+  getNumMeasurements() {}
+
+  setMeasurementsAxisVisible(axisVisible) {}
+
+  getMeasurementsAxisVisible() {}
+
+  setMeasurementsSnappingEnabled(snappingEnabled) {}
+
+  getMeasurementsSnappingEnabled() {}
+
+  destroy() {}
+
 }
 
 export default BIMViewer;

@@ -1,6 +1,6 @@
 export default function Inspector () {
     return (
-        <div className="xeokit-tabs">
+        <div className="xeokit-tabs bg-orange-300" onContextMenu={(e) => {e.preventDefault()}} >
   <div className="xeokit-tab xeokit-propertiesTab">
     <a
       className="xeokit-i18n xeokit-tab-btn disabled"

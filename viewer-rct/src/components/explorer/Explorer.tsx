@@ -1,7 +1,7 @@
 import {ReactElement} from 'react'
 export default function Explorer(): ReactElement  {
     return (
-        <div className="xeokit-tabs">
+        <div className="xeokit-tabs" onContextMenu={(e) => {e.preventDefault()}}>
   <div className="xeokit-tab xeokit-modelsTab">
     <a
       className="xeokit-i18n xeokit-tab-btn"

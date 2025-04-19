@@ -3,9 +3,9 @@ import Inspector from "./inspector/Inspector";
 import Toolbar from "./toolbar/Toolbar";
 import BIMViewer from "../BIMViewer/BIMViewer";
 import { LocaleService } from "@xeokit/xeokit-sdk/dist/xeokit-sdk.es.js";
-import { messages } from "../BIMViewer/forkedComponents/locales/messages";
+import  { messages }  from "../BIMViewer/source/locales/messages";
 import { Server } from "@xeokit/xeokit-bim-viewer";
-import { useRef, FC } from "react";
+import { useRef} from "react";
 
 export default function Viewer() {
   
@@ -20,7 +20,8 @@ export default function Viewer() {
 
   const server = new Server({ dataDir: "./data" }); //Добавь requestParams.dataDir
 
-  const bimViewer = new BIMViewer(server, {
+  
+  /*  const bimViewer = new BIMViewer(server, {
     localeService: new LocaleService({
       messages,
       locale: "ru",
@@ -32,20 +33,20 @@ export default function Viewer() {
     inspectorElement: inspectorElement.current,
     toolbarElement: toolbarElement.current,
     explorerTabId: explorerTabId.current,
-  });
+  });  */
 
   return (
     <>
       <div id="viewerApp" ref={viewerAppElement}>
-        <div id="toolbar" ref={toolbarElement}>
+        <div id="toolbar" ref={toolbarElement}  >
           <Toolbar />
         </div>
-        <div id="explorer" ref={explorerElement}>
+        <div id="explorer" ref={explorerElement} >
           {" "}
           <Explorer />
         </div>
-        <div id="inspector" ref={inspectorElement}>
-          {" "}
+        <div id="inspector" ref={inspectorElement} >
+        
           <Inspector />
         </div>
         <div id="viewer">

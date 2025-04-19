@@ -1,5 +1,5 @@
 import ResetViewButton from "./toolbarButtons/ResetViewButton"
-import Toggle2d3dButton from "./toolbarButtons/Toggle2D3DButton"
+import Toggle2d3dButton from "./toolbarButtons/Toggle2d3dButton"
 import TogglePerspectiveOrthoButton from "./toolbarButtons/TogglPerspectiveOrthoButton"
 import ViewFitButton from "./toolbarButtons/ViewFitButton"
 import ShowIfcSpacesButton from "./toolbarButtons/ShowIfcSpacesButton"
@@ -12,7 +12,7 @@ import MeasureAngleButton from "./toolbarButtons/MeasureAngleButton"
 import SliceObjectsButton from "./toolbarButtons/SliceObjectsButton"
 
 export default function Toolbar() {
-    return (<div className="xeokit-toolbar">
+    return (<div className="xeokit-toolbar" onContextMenu={(e) => {e.preventDefault()}}>
         {/* Reset button */}
         <div className="xeokit-btn-group">
           <ResetViewButton />
