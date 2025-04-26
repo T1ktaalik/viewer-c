@@ -36,7 +36,7 @@ import {MeasureAngleTool} from "./source/toolbar/MeasureAngleTool.js";
 
 
 class BIMViewer extends Controller {
-  private configs = {};
+  private configs: any = {};
   private enableAddModels: boolean = false;
   private enableMeasurements: boolean = true;
   private enableProperiesInspector: boolean = true;
