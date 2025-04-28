@@ -9,7 +9,7 @@ import { useRef} from "react";
 
 export default function Viewer() {
   
-  type AllowedTabId = "models" | "objects" | "classes" | "storeys" 
+  type AllowedTabId = "models" | "objects" | "classes" | "storeys" // this is a type alias
   const explorerTabId = useRef<AllowedTabId>("models");  
   const explorerElement = useRef<any>(null);
   const inspectorElement = useRef<any>(null);
