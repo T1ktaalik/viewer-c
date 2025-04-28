@@ -1,14 +1,52 @@
 <!doctype html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
-    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Vite + TS</title>
-  </head>
-  <body>
-    <div id="app"></div>
-    <script type="module" src="/src/main.ts"></script>
-  </body>
+
+<head>
+  <meta charset="UTF-8" />
+  <link rel="icon" type="image/svg+xml" href="/dor.svg" />
+  <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+  <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=5, viewport-fit=cover">
+  <link rel="stylesheet"
+    href="https://cdn.jsdelivr.net/npm/@xeokit/xeokit-bim-viewer@2.5.1-beta-22/dist/xeokit-bim-viewer.css"
+    type="text/css" />
+  <title>Дорремстрой</title>
+</head>
+
+<body>
+
+
+
+<!--   <input type="checkbox" id="explorer-toggle" class="hidden"/>
+
+  <label for="explorer-toggle" class="hidden xeokit-i18n explorer-toggle-label xeokit-btn fas fa-2x fa-sitemap"
+    data-xeokit-i18ntip="toolbar.toggleExplorer" data-tippy-content="Toggle explorer"></label>
+
+  <input type="checkbox" id="inspector-toggle" class="hidden" />
+
+  <label id="inspector-toggle-label" for="inspector-toggle"
+    class="xeokit-i18n inspector-toggle-label xeokit-btn fas fa-info-circle fa-2x hidden"
+    data-xeokit-i18ntip="toolbar.toggleProperties" data-tippy-content="Toggle properties"></label> -->
+
+  <div id="explorer" class="hidden"></div>
+
+  <div id="toolbar" class="hidden"></div>
+
+  <div id="inspector" class="hidden"></div>
+
+<!--   <select id="project-select" class="hiden"></select> -->
+
+  <div id="viewer" class="w-screen h-screen">
+   <div class="absolute top-0 z-50 text-center w-full mt-7 my-auto ">
+    <h1 class="text-centre text-xl md:text-2xl text-slate-800 p-1">Склад и гараж легковых автомобилей</h1>
+    <h2 class="text-centre text-base md:text-lg p-1 text-slate-800">Город ростов-на-Дону, переулок Машиностроительный, 3А</h2>
+  </div>
+    <canvas id="canvas"></canvas>
+    <canvas id="nav-cube-canvas" class=" w-[100px] h-[100px] sm:w-[200px] sm:h-[200px]"></canvas>
+  </div>
+  <script src="https://kit.fontawesome.com/d129036538.js" crossorigin="anonymous"></script>
+  <script src="https://unpkg.com/@popperjs/core@2"></script>
+  <script src="https://unpkg.com/tippy.js@6"></script>
+  <script type="module" src="/src/main.js"></script>
+</body>
+
 </html>
