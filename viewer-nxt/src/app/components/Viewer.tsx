@@ -50,8 +50,7 @@ export default function Viewer() {
           {" "}
           <Explorer />
         </div>
-        <div id="inspector" ref={inspectorElement} >
-        
+        <div id="inspector" ref={inspectorElement} >      
           <Inspector />
         </div>
         <div id="viewer">

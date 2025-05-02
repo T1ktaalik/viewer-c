@@ -32,6 +32,17 @@ import {ObjectsKdTree3} from "./source/collision/ObjectsKdTree3.js";
 import {MarqueeSelectionTool} from "./source/toolbar/MarqueeSelectionTool.js";
 import {MeasureDistanceTool} from "./source/toolbar/MeasureDistanceTool.js";
 import {MeasureAngleTool} from "./source/toolbar/MeasureAngleTool.js";
+type AllowedTabId = "models" | "objects" | "classes" | "storeys";
+interface Configs {
+  busyModelBackdropElement: HTMLElement;
+  canvasElement: HTMLElement;
+  explorerElement: HTMLElement;
+  inspectorElement: HTMLElement;
+  toolbarElement: HTMLElement;
+  navCubeCanvasElement: HTMLElement;
+  explorerTabId: AllowedTabId;
+  localeService: string
+}
 
 
 
@@ -42,7 +53,8 @@ class BIMViewer extends Controller {
   private enableProperiesInspector: boolean = true;
   private objectsKdTree3: any = null;
 
-  constructor(server: any, cfg: any = {}) {
+
+  constructor(server: any, cfg: Configs ) {
     if (cfg.busyModelBackdropElement) {
       throw "Не определен элемент busyModelBackdropElement ";
     }
