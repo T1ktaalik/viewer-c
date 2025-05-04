@@ -32,8 +32,17 @@ import {ObjectsKdTree3} from "./source/collision/ObjectsKdTree3.js";
 import {MarqueeSelectionTool} from "./source/toolbar/MarqueeSelectionTool.js";
 import {MeasureDistanceTool} from "./source/toolbar/MeasureDistanceTool.js";
 import {MeasureAngleTool} from "./source/toolbar/MeasureAngleTool.js";
+
+/**
+ * Используем zod для валидации типов.
+ * https://zod.dev/
+ */
+
 type AllowedTabId = "models" | "objects" | "classes" | "storeys";
-interface Configs {
+/** Почему то для Viewer state не предусматривается "models" */
+type AllowedTabIdViewerState =  "objects" | "classes" | "storeys";
+type rgbColor = [number, number, number]
+interface ConfigsOfInit {
   busyModelBackdropElement: HTMLElement;
   canvasElement: HTMLElement;
   explorerElement: HTMLElement;
@@ -41,20 +50,89 @@ interface Configs {
   toolbarElement: HTMLElement;
   navCubeCanvasElement: HTMLElement;
   explorerTabId: AllowedTabId;
-  localeService: string
+  localeService: string;
+}
+/** "@Здесь описание https://xeokit.github.io/xeokit-bim-viewer/#viewer-states */
+interface bimViewerConfigs {
+  backgroundColor?: rgbColor; 
+  cameraNear?: number; 
+  cameraFar?: number; 
+  smartPivot?: boolean;
+  saoEnabled?: boolean;
+  saoBias?: number;
+  saoIntensity?: number;
+  saoScale?: number;
+  saoKernelRadius?: number;
+  saoBlur?: boolean;
+  edgesEnabled?: boolean;
+  pbrEnabled?: boolean;
+  viewFitFOV?: number;
+  viewFitDuration?: number;
+  perspectiveFOV?: number;
+  /**Это мне ассистент предложил
+   * objectColors?: { [key: string]: rgbColor } | undefined
+   */
+  objectColors?: { } | undefined;
+  externalMetadata?: boolean;
+  xrayPickable?: boolean;
+  selectedGlowThrough?: boolean;
+  highlightGlowThrough?: boolean;
+  dtxEnabled?: boolean;
+  showSpaces?: boolean;
+}
+/** Конфигурация для BIMViewer#setViewerState*/
+interface ViewerState {
+  focusObject?: string;
+  tabOpen?: AllowedTabIdViewerState;
+  expandObjectsTree?: number;
+  expandClassesTree?: number;
+  expandStoreysTree?: number;
+  setCamera?: {
+    eye: [number, number, number];
+    look: [number, number, number];
+    up: [number, number, number];
+  };
+}
+interface viewerInitializationArgument {
+
 }
 
 
 
+
 class BIMViewer extends Controller {
-  private configs: any = {};
+  configs: bimViewerConfigs = {
+    backgroundColor: [0, 0, 0],
+    cameraNear: 0.1,
+    cameraFar: 500,
+    smartPivot: true,
+    saoEnabled: true,
+    saoBias: 0.5,
+    saoIntensity: 100,
+    saoScale: 500,
+    saoKernelRadius: 100,
+    saoBlur: true,
+    edgesEnabled: true,
+    pbrEnabled: true,
+    viewFitFOV: 30,
+    viewFitDuration: 1,
+    perspectiveFOV: 55,
+    objectColors: undefined,
+    externalMetadata: false,
+    xrayPickable: false,
+    selectedGlowThrough: true,
+    highlightGlowThrough: true,
+    dtxEnabled: true,
+    showSpaces: true
+
+  };
   private enableAddModels: boolean = false;
   private enableMeasurements: boolean = true;
   private enableProperiesInspector: boolean = true;
   private objectsKdTree3: any = null;
 
 
-  constructor(server: any, cfg: Configs ) {
+  constructor(server: any, cfg: ConfigsOfInit ) {
     if (cfg.busyModelBackdropElement) {
       throw "Не определен элемент busyModelBackdropElement ";
     }
