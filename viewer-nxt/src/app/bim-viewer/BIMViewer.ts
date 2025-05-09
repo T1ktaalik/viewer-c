@@ -98,8 +98,6 @@ interface viewerInitializationArgument {
 }
 
 
-
-
 class BIMViewer extends Controller {
   configs: bimViewerConfigs = {
     backgroundColor: [0, 0, 0],
@@ -167,6 +165,10 @@ class BIMViewer extends Controller {
       localeService,
     } = cfg;
 
+    explorerElement.oncontextmenu = (e) => e.preventDefault()
+    toolbarElement.oncontextmenu = (e) => e.preventDefault()
+    navCubeCanvasElement.oncontextmenu = (e) => e.preventDefault()
+
     const viewer = new Viewer({
       canvasElement,
       localeService,
@@ -177,7 +179,7 @@ class BIMViewer extends Controller {
       saoEnabled: true,
       pbrEnabled: false,
       colorTextureEnabled: true,
-      numCachedSectionPlanes: 4,
+      numCachedSectionPlanes: 3,
     });
 
     super(null, cfg, server, viewer);
