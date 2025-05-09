@@ -1,0 +1,25 @@
+{
+  "name": "bim-viewer-lib",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "build": "rollup -c",
+    "build:watch": "rollup -c -w",
+    "dev": "ts-node src/index.ts",
+    "start": "node dist/bimViewerLib.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "module",
+  "devDependencies": {
+    "@rollup/plugin-commonjs": "^28.0.3",
+    "@rollup/plugin-node-resolve": "^16.0.1",
+    "@types/node": "^22.15.17",
+    "rollup": "^4.40.2",
+    "rollup-plugin-typescript2": "^0.36.0",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.8.3"
+  }
+}
