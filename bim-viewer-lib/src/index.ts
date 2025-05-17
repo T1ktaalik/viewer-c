@@ -1,2 +1,1 @@
-let greeting: string = "Hello, world!";
-console.log(greeting);
+import BIMViewer from "./theBIMViewer";
